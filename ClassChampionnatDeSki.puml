@@ -1,0 +1,91 @@
+@startuml
+
+class Participants
+class Categories
+class Profils
+class Epreuves
+Class Passage
+Class Resultat
+
+
+
+ Categories *-- Participants
+ Profils *-- Participants
+ Participants *-- Passage
+ Epreuves *-- Passage
+ (Participants, Passage) . Resultat
+ Participants -- Epreuves
+ (Participants,Epreuves) . Participe
+
+
+ class Profils {
+ id
+ -NomProfil
+ insert()
+ update()
+ delate()
+ getlisteProfil():list
+ }
+
+ class Categories {
+  id
+  -NomCategorie
+ insert()
+ update()
+ delate()
+ getListeCategorie():list
+  }
+
+ class Participants {
+ id
+ -nom string
+ -prenom string
+ -date de naissance date
+ -email string
+ -profil profils
+ -categorie categorie
+ -photo Bloob
+
+ -insertParticipant()
+ -updateParticipant()
+ -deleteParticipant()
+ }
+
+ class Epreuves {
+ id
+ -Lieu string
+ -date date
+
+
+ createEpreuve()
+ updateEpreuve()
+ DelateEpreuve()
+ }
+ class Participe {
+ participant participants
+ Epreuve Epreuves
+
+ getEpreuveParticipant():list
+ getListeParticipants():list
+ importResultatCSV()
+ }
+
+ class Passage {
+ id
+ -NumPassage integer
+ -Epreuve Epreuves
+ getNumpassage()
+ }
+ class Resultat {
+ id
+ -passage Passage
+ -participant participant
+ -temps time
+ TransfereResultaCSV()
+ calculeMoyenne()
+ classementGeneral():list
+ classementCategorie():list
+ classementAge():list
+ }
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+
+
+
+User -> (creer categorie)
+User -> (creer profil)
+User -> (insert participant)
+User -> (creer epreuve)
+User -> (afficher les participant)
+User -> (exporter un csv des participants)
+User -> (Importer un csv des resultats des participants)
+User -> (Afficher le classement générale)
+User -> (Afficher le classement par categorie)
+User -> (Afficher le classement par Age)
+
+(creer categorie) <... (supprimer categorie)
+(creer categorie) <... (modifier categorie)
+
+(creer profil) <.. (supprimer profil)
+(creer profil) <.. (modifier profil)
+
+(creer categorie)<...(insert participant)
+(creer profil)<...(insert participant)
+(creer epreuve)<...(insert participant)
+
+(creer epreuve)<...(exporter un csv des participants)
+(insert participant)<...(exporter un csv des participants)
+(modifer participant)..>(insert participant)
+(supprimer participant)..>(insert participant)
+
+(afficher les participant)...>(insert participant)
+
+(Importer un csv des resultats des participants)...>(exporter un csv des participants)
+(Afficher le classement générale) ...>(Importer un csv des resultats des participants)
+(Afficher le classement par categorie)...>(Importer un csv des resultats des participants)
+(Afficher le classement par Age)...>(Importer un csv des resultats des participants)
+@enduml
